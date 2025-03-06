@@ -22,11 +22,11 @@ class BaseThrottle:
 
     def get_ident(self, request):
         """
-        Identify the machine making the request by parsing HTTP_X_FORWARDED_FOR
+        Identify the machine making the request by parsing X-FORWARDED-FOR
         if present and number of proxies is > 0. If not use all of
-        HTTP_X_FORWARDED_FOR if it is available, if not use REMOTE_ADDR.
+        X-FORWARDED-FOR if it is available, if not use REMOTE_ADDR.
         """
-        xff = request.META.get('HTTP_X_FORWARDED_FOR')
+        xff = request.headers.get('x-forwarded-for')
         remote_addr = request.META.get('REMOTE_ADDR')
         num_proxies = api_settings.NUM_PROXIES
 

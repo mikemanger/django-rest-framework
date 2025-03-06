@@ -249,7 +249,7 @@ The following is an example of a permission class that checks the incoming reque
         """
 
         def has_permission(self, request, view):
-            ip_addr = request.META['REMOTE_ADDR']
+            ip_addr = request.headers['remote-addr']
             blocked = Blocklist.objects.filter(ip_addr=ip_addr).exists()
             return not blocked
 

@@ -71,7 +71,7 @@ For example:
 
     class AcceptQueryParamOverride()
         def get_accept_list(self, request):
-           header = request.META.get('HTTP_ACCEPT', '*/*')
+           header = request.headers.get('accept', '*/*')
            header = request.query_params.get('_accept', header)
            return [token.strip() for token in header.split(',')]
 

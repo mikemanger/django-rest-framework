@@ -115,7 +115,7 @@ For more information see the [browser enhancements documentation].
 
 You won't typically need to directly access the request's content type, as you'll normally rely on REST framework's default request parsing behavior.
 
-If you do need to access the content type of the request you should use the `.content_type` property in preference to using `request.META.get('HTTP_CONTENT_TYPE')`, as it provides transparent support for browser-based non-form content.
+If you do need to access the content type of the request you should use the `.content_type` property in preference to using `request.headers.get('content-type')`, as it provides transparent support for browser-based non-form content.
 
 For more information see the [browser enhancements documentation].
 
