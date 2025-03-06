@@ -210,7 +210,7 @@ The following example uses a custom `X-API-Version` header to determine the requ
 
     class XAPIVersionScheme(versioning.BaseVersioning):
         def determine_version(self, request, *args, **kwargs):
-            return request.META.get('HTTP_X_API_VERSION', None)
+            return request.headers.get('x-api-version', None)
 
 If your versioning scheme is based on the request URL, you will also want to alter how versioned URLs are determined. In order to do so you should override the `.reverse()` method on the class. See the source code for examples.
 
