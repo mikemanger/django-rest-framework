@@ -350,7 +350,7 @@ The following example will authenticate any incoming request as the user given b
 
     class ExampleAuthentication(authentication.BaseAuthentication):
         def authenticate(self, request):
-            username = request.META.get('HTTP_X_USERNAME')
+            username = request.headers.get('x-username')
             if not username:
                 return None
 
